@@ -33,3 +33,13 @@
   package:
     name: "{{ ibm_packages }}" 
     state: present
+
+- name: check for service status
+  shell: sudo service {{ servicename }} status
+  ignore_errors: true
+  register: servicestatus
+
+- name: Show service service status
+  debug:
+    msg: '{{ servicename }} exists.'
+  when: servicestatus.rc | int == 0

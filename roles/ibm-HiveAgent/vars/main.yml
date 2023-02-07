@@ -1,2 +1,4 @@
 ---
 # vars file for ibm-HiveAgent
+debian_url_agent_keeperx:
+redhat_url_agent_keeperx:

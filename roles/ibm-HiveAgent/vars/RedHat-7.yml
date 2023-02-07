@@ -1,0 +1,9 @@
+---
+__ibm_packages:
+  - gcc 
+  - curl 
+  - make 
+  - dkms 
+  - kmod 
+  - kernel-devel-{{ansible_kernel}}
+  - kernel-devel

@@ -1,7 +1,0 @@
----
-# tasks file for ibm-HiveAgent
-- name: Add repository
-  yum_repository:
-    name: monrepository
-    description: YUM repo nexus
-    baseurl: http://192.168.0.50:8081/repository/$releasever/$basearch/

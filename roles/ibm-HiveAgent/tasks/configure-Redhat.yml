@@ -1,0 +1,8 @@
+- name: download latest agent keeperx
+  get_url:
+    url: "MONURL"
+    dest: /tmp/debian/keeperx.rpm
+
+- name: Installing the Hive Agent on rpm-based Linux endpoints
+  shell:
+    cmd: sudo RQTPARAMS="https://{{ server_url }} –gids {{ group_IDs }}" rpm -i /tmp/debian/keeperx.rpm

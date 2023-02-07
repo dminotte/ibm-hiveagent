@@ -1,6 +1,6 @@
 - name: download latest agent keeperx
   get_url:
-    url: "MONURL"
+    url: "{{ debian_url_agent_keeperx }}"
     dest: /tmp/debian/keeperx.deb
 
 - name: Installing the Hive Agent on debian-based Linux endpoints

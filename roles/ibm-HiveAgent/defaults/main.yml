@@ -1,5 +1,5 @@
 ---
 # defaults file for ibm-HiveAgent
 servicename: keeperx
-server_url: ~
-group_IDs: ~
+validate_server_url: ~
+validate_group_IDs: ~

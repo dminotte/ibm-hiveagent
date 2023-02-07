@@ -5,10 +5,9 @@
   when: (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "8") or
           (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "9")
           
-- name: Include Debian 10/11 variables.
+- name: Include Debian 10+ variables.
   include_vars: "Debian-10.yml"
-  when: (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "8") or
-          (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] == "9")
+  when: (ansible_facts['distribution'] == "Debian" and ansible_facts['distribution_major_version'] >= "10")
 
 - name: Include Ubuntu variables.
   include_vars: "Ubuntu.yml"

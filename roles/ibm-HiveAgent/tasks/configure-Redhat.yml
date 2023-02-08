@@ -2,6 +2,7 @@
   get_url:
     url: "{{ redhat_url_agent }}"
     dest: /tmp/hive-installer-0.60.0-x86_64.rpm
+  validate_certs: false
 
 - name: Installing the Hive Agent on rpm-based Linux endpoints
   shell:

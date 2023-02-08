@@ -1,8 +1,8 @@
-- name: download latest agent keeperx
+- name: download latest agent
   get_url:
-    url: "{{ debian_url_agent_keeperx }}"
-    dest: /tmp/debian/keeperx.deb
+    url: "{{ debian_url_agent }}"
+    dest: /tmp/hive-installer-0.60.0-x86_64.deb
 
 - name: Installing the Hive Agent on debian-based Linux endpoints
   shell:
-    cmd: sudo RQTPARAMS="https://{{ validate_server_url }} –gids {{ validate_group_IDs }}" dpkg -i /tmp/debian/keeperx.deb
+    cmd: sudo RQTPARAMS="https://{{ validate_server_url }} –gids {{ validate_group_IDs }}" dpkg -i /tmp/hive-installer-0.60.0-x86_64.deb

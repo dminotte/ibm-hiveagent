@@ -1,8 +1,8 @@
-- name: download latest agent keeperx
+- name: download latest agent
   get_url:
-    url: "{{ redhat_url_agent_keeperx }}"
-    dest: /tmp/redhat/keeperx.rpm
+    url: "{{ redhat_url_agent }}"
+    dest: /tmp/hive-installer-0.60.0-x86_64.rpm
 
 - name: Installing the Hive Agent on rpm-based Linux endpoints
   shell:
-    cmd: sudo RQTPARAMS="https://{{ validate_server_url }} –gids {{ validate_group_IDs }}" rpm -i /tmp/redhat/keeperx.rpm
+    cmd: sudo RQTPARAMS="https://{{ validate_server_url }} –gids {{ validate_group_IDs }}" rpm -i /tmp/hive-installer-0.60.0-x86_64.rpm

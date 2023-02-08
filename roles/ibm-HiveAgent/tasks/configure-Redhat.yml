@@ -6,4 +6,4 @@
 
 - name: Installing the Hive Agent on rpm-based Linux endpoints
   shell:
-    cmd: sudo RQTPARAMS="https://{{ validate_server_url }} –gids {{ validate_group_IDs }}" rpm -i /tmp/hive-installer-0.60.0-x86_64.rpm
+    cmd: sudo RQTPARAMS="{{ validate_server_url }} –gids {{ validate_group_IDs }}" rpm -i /tmp/hive-installer-0.60.0-x86_64.rpm

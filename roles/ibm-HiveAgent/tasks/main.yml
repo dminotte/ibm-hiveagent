@@ -34,16 +34,16 @@
     name: "{{ ibm_packages }}" 
     state: present
 
-- name: "check for service {{ servicename }} status"
-  shell: sudo service {{ servicename }} status
-  ignore_errors: true
-  register: servicestatus
+#- name: "check for service {{ servicename }} status"
+#  shell: sudo service {{ servicename }} status
+#  ignore_errors: true
+#  register: servicestatus
 
 - name: Installing the Hive Agent on Linux endpoints.
   include_tasks: "configure-{{ ansible_os_family }}.yml"
-  when: servicestatus.rc | int != 0
+#  when: servicestatus.rc | int != 0
 
-- name: "Show service service {{ servicename }} exists"
-  debug:
-    msg: '{{ servicename }} exists.'
-  when: servicestatus.rc | int == 0
+#- name: "Show service service {{ servicename }} exists"
+#  debug:
+#    msg: '{{ servicename }} exists.'
+#  when: servicestatus.rc | int == 0

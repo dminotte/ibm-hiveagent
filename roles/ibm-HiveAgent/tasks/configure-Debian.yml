@@ -3,6 +3,9 @@
     url: "{{ debian_url_agent }}"
     dest: /tmp/hive-installer-0.60.0-x86_64.deb
     validate_certs: false
+    url_username: "{{ ibm_username }}"
+    url_password: "{{ ibm_username_password }}"
+    force_basic_auth: true
 
 - name: Installing the Hive Agent on debian-based Linux endpoints
   shell:

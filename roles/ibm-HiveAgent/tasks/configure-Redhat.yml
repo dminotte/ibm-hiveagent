@@ -1,3 +1,4 @@
+---
 - name: download latest agent
   get_url:
     url: "{{ redhat_url_agent }}"

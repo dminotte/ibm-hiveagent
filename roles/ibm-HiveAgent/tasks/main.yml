@@ -22,9 +22,6 @@
   include_vars: "RedHat-8.yml"
   when: (ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] >= "8")
 
-#- name: Configure Repository.
-# include_tasks: "configure-{{ ansible_os_family }}.yml"
-
 - name: Define ibm_packages.
   set_fact:
     ibm_packages: "{{ __ibm_packages | list }}"
@@ -35,13 +32,24 @@
     name: "{{ ibm_packages }}" 
     state: present
 
-#- name: "check for service {{ servicename }} status"
-#  shell: sudo service {{ servicename }} status
-#  ignore_errors: true
-#  register: servicestatus
+- name: "Updated ansible package_facts"
+  package_facts:
+    manager: "auto"
 
-- name: Installing the Hive Agent on Linux endpoints.
-  include_tasks: "configure-{{ ansible_os_family }}.yml"
+- name: "Packages test result"
+  debug: 
+    msg: "{{ item }} found"
+  when: "'{{ item }}' in ansible_facts.packages"
+  loop: "{{ ibm_packages }}"
+
+- name: "Packages test result"
+  debug: 
+    msg: "{{ item }} not found"
+  failed_when: "'{{ item }}' not in ansible_facts.packages"
+  loop: "{{ ibm_packages }}"
+
+#- name: Installing the Hive Agent on Linux endpoints.
+#  include_tasks: "configure-{{ ansible_os_family }}.yml"
 #  when: servicestatus.rc | int != 0
 
 #- name: "Show service service {{ servicename }} exists"

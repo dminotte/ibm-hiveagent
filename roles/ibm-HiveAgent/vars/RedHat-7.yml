@@ -5,5 +5,5 @@ __ibm_packages:
   - make 
   - dkms 
   - kmod 
-  - kernel-devel-{{ansible_kernel}}
+  - kernel-devel-{{ ansible_kernel }}
   - kernel-devel

@@ -3,7 +3,7 @@ __ibm_packages:
   - clang
   - gcc 
   - curl 
-  - linux-headers-{{ansible_kernel}}
+  - linux-headers-{{ ansible_kernel }}
   - linux-headers-generic
   - llvm
   - make

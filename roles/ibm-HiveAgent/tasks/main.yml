@@ -2,7 +2,7 @@
 # tasks file for ibm-HiveAgent
 - name: "Get os and version"
   debug: 
-    msg: "{{ ansible_facts['os_family'] }} {{ ansible_facts['distribution_major_version'] }} "
+    msg: "Family: {{ ansible_facts['os_family'] }} Os: {{ ansible_facts['distribution'] }} VersionMajor: {{ ansible_facts['distribution_major_version'] }} "
 
 - name: Include Debian 8/9 variables.
   include_vars: "Debian-8.yml"

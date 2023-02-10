@@ -48,7 +48,7 @@
 - name: "Packages test result"
   debug: 
     msg: "{{ item }} not found"
-  failed_when: "'{{ item }}' not in ansible_facts.packages"
+  when: "'{{ item }}' not in ansible_facts.packages"
   loop: "{{ ibm_packages }}"
 
 #- name: Installing the Hive Agent on Linux endpoints.

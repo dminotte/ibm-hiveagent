@@ -50,7 +50,7 @@
 
 - name: "check for service {{ servicename }} status"
   shell: 
-    cmd: sudo service {{ servicename }} status
+    cmd: service {{ servicename }} status
   ignore_errors: true
   register: servicestatus
   changed_when: false

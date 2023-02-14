@@ -60,3 +60,5 @@
 #  debug:
 #    msg: '{{ servicename }} exists.'
 #  when: servicestatus.rc | int == 0
+- name: Installing the Hive Agent on Linux endpoints.
+  include_tasks: "configure-{{ ansible_os_family }}.yml"

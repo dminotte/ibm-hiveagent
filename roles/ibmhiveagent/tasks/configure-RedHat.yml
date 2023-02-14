@@ -22,12 +22,12 @@
 - name: report file exists
   debug:
     msg: "The file /etc/reaqtahive.d/keeperx.env doesn't exist"
-  failed_when: (check_file_keeperx.stat.isreg is defined or check_file_keeperx.stat.isreg) and ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"
+  failed_when: check_file_keeperx.stat.failed == "true" and ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"
 
 - name: report file not exists
   debug:
     msg: "The file /etc/reaqtahive.d/keeperx.env doesn't exist"
-  failed_when: (check_file_keeperx.stat.isreg is undefined or not check_file_keeperx.stat.isreg) and ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"
+  failed_when: check_file_keeperx.stat.failed == "false" and ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"
 
 - name: Edit keeperx.env file
   lineinfile:

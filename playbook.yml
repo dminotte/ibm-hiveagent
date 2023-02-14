@@ -5,4 +5,4 @@
   remote_user: myuser
 
   roles:
-    - { role: ibm-HiveAgent }
+    - { role: ibmHiveAgent }

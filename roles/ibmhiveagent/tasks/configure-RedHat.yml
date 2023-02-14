@@ -13,7 +13,7 @@
     path: /tmp/hive-installer-0.60.0-x86_64.rpm
     state: absent
 
-- name: Check keeperx.env file exist
+- name: register keeperx.env file exist or not
   file:
     path: /etc/reaqtahive.d/keeperx.env
   when: ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"

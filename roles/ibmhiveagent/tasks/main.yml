@@ -53,7 +53,8 @@
   loop: "{{ ibm_packages }}"
 
 - name: "check for service {{ servicename }} status"
-  shell: sudo service {{ servicename }} status
+  shell: 
+    cmd: sudo service {{ servicename }} status
   ignore_errors: true
   register: servicestatus
 

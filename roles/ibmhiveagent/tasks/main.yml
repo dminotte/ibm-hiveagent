@@ -57,6 +57,7 @@
     cmd: sudo service {{ servicename }} status
   ignore_errors: true
   register: servicestatus
+  changed_when: false
 
 - name: Installing the Hive Agent on Linux endpoints.
   include_tasks: "configure-{{ ansible_os_family }}.yml"

@@ -24,7 +24,7 @@
     path: /etc/reaqtahive.d/keeperx.env
     line: KMOD_IGNORE_TAINT=1
     insertafter: "EOF"
-  when: check_file_keeperx.stat.exists and ansible_facts['os_family'] == "RedHat" and ansible_facts['distribution_major_version'] == "7"
+  when: (check_file_keeperx.stat.isreg is defined) and (check_file_keeperx.stat.isreg) and (ansible_facts['os_family'] == "RedHat") and (ansible_facts['distribution_major_version'] == "7")
 
 - name: report file not exists
   debug:

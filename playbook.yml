@@ -4,5 +4,16 @@
   gather_facts: True
   remote_user: myuser
 
+  pre_tasks:
+    - name:
+      shell: pwd
+      register: shellout
+      changed_when: false
+
+    - name: Create the log file for this run
+      shell: /bin/bash -l -c "mv {{ shellout.stdout }}/ansible.log  {{ shellout.stdout }}/ansible.log-{{ lookup('pipe', 'date +%Y%m%d%H%M%S') }}"
+      delegate_to: localhost
+      run_once: true
+
   roles:
     - { role: ibmhiveagent }
